@@ -1,0 +1,74 @@
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <!-- end page title -->
+  
+   
+  
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Validation type</h4>
+            <p class="card-title-desc">
+              Parsley is a javascript form validation library. It helps you provide your users with feedback on
+              their form submission before sending it to your server.
+            </p>
+            <form (ngSubmit)="typeSubmit()" [formGroup]="UserForm">
+              <div class="mb-3">
+                <label class="form-label">Nom</label>
+                <input type="text" class="form-control" formControlName="nom"
+                  [ngClass]="{'is-invalid': typesubmit && type['nom'].errors}" placeholder="Nom" />
+                <div *ngIf="typesubmit && type['nom'].errors" class="invalid-feedback">
+                  <span *ngIf="type['nom'].errors['required']">nom obligatoire.</span>
+                  <span *ngIf="type['nom'].errors['pattern']">le nom doit avoir seulment des lettres [a-z,A-Z].</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Prenom</label>
+                <div>
+                  <input type="text" class="form-control" placeholder="prenom" formControlName="prenom"
+                    [ngClass]="{'is-invalid': typesubmit && type['prenom'].errors}" />
+                  <div *ngIf="typesubmit && type['prenom'].errors" class="invalid-feedback">
+                    <span *ngIf="type['prenom'].errors['required']">prenom obligatoire.</span>
+                    <span *ngIf="type['prenom'].errors['pattern']">le prenom doit avoir seulment des lettres [a-z,A-Z]</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="email"
+                    [ngClass]="{'is-invalid': typesubmit && type['email'].errors}" placeholder="Enter a valid e-mail" />
+                  <div *ngIf="typesubmit && type['email'].errors" class="invalid-feedback">
+                    <span *ngIf="type['email'].errors['required']">email obligatoire.</span>
+                    <span *ngIf="type['email'].errors['pattern']">entre un email valide.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Telephone</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="telephone"
+                    [ngClass]="{'is-invalid': typesubmit && type['telephone'].errors}" placeholder="Enter votre telephone" />
+                  <div *ngIf="typesubmit && type['telephone'].errors" class="invalid-feedback">
+                    <span *ngIf="type['telephone'].errors['required']">telephone obligatoire.</span>
+                    <span *ngIf="type['telephone'].errors['pattern']">format incorrect.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                    Submit
+                </button>
+                <button type="reset" class="btn btn-secondary waves-effect">
+                    Cancel
+                </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
